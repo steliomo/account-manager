@@ -65,6 +65,9 @@ public class User extends GenericEntity implements UserDetails {
 	@Column(name = "ENABLED")
 	private boolean enabled;
 
+	@Column(name = "IS_RESET", nullable = false)
+	private boolean reset;
+
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private Set<UserApplicationRole> userApplicationRoles;
 
@@ -149,6 +152,14 @@ public class User extends GenericEntity implements UserDetails {
 
 	public void setEnabled(final boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public boolean isReset() {
+		return this.reset;
+	}
+
+	public void setReset(final boolean reset) {
+		this.reset = reset;
 	}
 
 	@Override

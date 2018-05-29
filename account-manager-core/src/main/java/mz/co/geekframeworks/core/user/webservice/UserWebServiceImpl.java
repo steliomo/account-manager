@@ -63,6 +63,7 @@ public class UserWebServiceImpl implements UserWebService {
 
 		final User user = this.userQueryService.findUserByUuid(userContext.getUuid());
 		user.setPassword(userContext.getPassword());
+		user.setReset(userContext.getPropertyValue(Entry.RESET));
 
 		this.userService.updateUserPassword(userContext, user);
 
