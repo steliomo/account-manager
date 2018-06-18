@@ -217,16 +217,6 @@
 						</execution>
 					</executions>
 				</plugin>
-				<plugin>
-					<groupId>org.flywaydb</groupId>
-					<artifactId>flyway-maven-plugin</artifactId>
-					<version>3.2.1</version>
-					<configuration>
-						<url>jdbc:mysql://localhost:3308/accountmanager?autoReconnect=true</url>
-						<user>root</user>
-						<password>root</password>
-					</configuration>
-				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -240,6 +230,18 @@
 			</activation>
 			<build>
 				<plugins>
+
+					<plugin>
+						<groupId>org.flywaydb</groupId>
+						<artifactId>flyway-maven-plugin</artifactId>
+						<version>3.2.1</version>
+						<configuration>
+							<url>jdbc:mysql://localhost:3308/accountmanager?autoReconnect=true</url>
+							<user>root</user>
+							<password>root</password>
+						</configuration>
+					</plugin>
+
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-antrun-plugin</artifactId>
@@ -267,6 +269,18 @@
 			<id>test</id>
 			<build>
 				<plugins>
+
+					<plugin>
+						<groupId>org.flywaydb</groupId>
+						<artifactId>flyway-maven-plugin</artifactId>
+						<version>3.2.1</version>
+						<configuration>
+							<url>jdbc:mysql://localhost:3309/accountmanager?autoReconnect=true</url>
+							<user>root</user>
+							<password>root</password>
+						</configuration>
+					</plugin>
+
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-antrun-plugin</artifactId>
