@@ -255,7 +255,7 @@
 									<tasks>
 										<echo>Using local.prod.properties</echo>
 										<copy file="src/main/resources/local.prod.properties"
-											tofile="${project.build.outputDirectory}/local.properties" />
+											tofile="src/main/resources/local.properties" />
 									</tasks>
 								</configuration>
 							</execution>
@@ -294,7 +294,7 @@
 									<tasks>
 										<echo>Using local.test.properties</echo>
 										<copy file="src/main/resources/local.test.properties"
-											tofile="${project.build.outputDirectory}/local.properties" />
+											tofile="src/main/resources/local.properties" />
 									</tasks>
 								</configuration>
 							</execution>
