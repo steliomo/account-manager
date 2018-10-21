@@ -107,4 +107,10 @@ public class UserWebServiceImpl implements UserWebService {
 
 		return JResponse.ok(user).build();
 	}
+
+	@Override
+	public JResponse<User> loadUserByUsername(final String username) throws BusinessException {
+		final User user = (User) this.userQueryService.loadUserByUsername(username);
+		return JResponse.ok(user).build();
+	}
 }

@@ -47,4 +47,9 @@ public interface UserWebService {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public JResponse<User> createUser(final UserContext userContext) throws BusinessException;
+
+	@GET
+	@Path("user/{username}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public JResponse<User> loadUserByUsername(@PathParam("username") final String username) throws BusinessException;
 }

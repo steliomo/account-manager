@@ -66,10 +66,14 @@ public class User extends GenericEntity implements UserDetails {
 	private boolean enabled;
 
 	@Column(name = "IS_RESET", nullable = false)
-	private boolean reset;
+	private Boolean reset;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private Set<UserApplicationRole> userApplicationRoles;
+
+	public User() {
+		this.reset = Boolean.FALSE;
+	}
 
 	public String getFullName() {
 		return this.fullName;
@@ -158,7 +162,12 @@ public class User extends GenericEntity implements UserDetails {
 		return this.reset;
 	}
 
-	public void setReset(final boolean reset) {
+	public void setReset(final Boolean reset) {
+
+		if (reset == null) {
+			this.reset = Boolean.FALSE;
+		}
+
 		this.reset = reset;
 	}
 
