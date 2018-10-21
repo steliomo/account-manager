@@ -1,4 +1,4 @@
-version: '2'
+version: '3.2'
 services:
     mysql-account:
        build: mysql
@@ -8,7 +8,9 @@ services:
          - network
        container_name: mysql-account
        volumes:
-         - /opt/data/webapp/account:/usr/local/mysql
+          - type: volume
+            source: dbdata
+            target: /opt/account-manager/data
        hostname: mysql-account
        restart: unless-stopped
     tomcat-account:
@@ -23,11 +25,16 @@ services:
          - mysql-account
        links:
          - mysql-account
-       volumes: 
-         - /opt/data/webapp/account:/usr/local/tomcat/webapps
+       volumes:
+         - type: bind
+           source: /opt/account-manager/data
+           target: /usr/local/tomcat/webapps
        hostname: tomcat-account
        restart: unless-stopped
 
 networks:
   network:
     driver: bridge
+
+volumes:
+  dbdata:
