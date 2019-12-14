@@ -16,6 +16,7 @@ import com.sun.jersey.api.JResponse;
 import mz.co.geekframeworks.core.security.AuthenticationService;
 import mz.co.geekframeworks.core.user.model.User;
 import mz.co.geekframeworks.core.user.model.UserContextFactory;
+import mz.co.geekframeworks.core.user.model.UserDTO;
 import mz.co.geekframeworks.core.user.service.UserQueryService;
 import mz.co.geekframeworks.core.user.service.UserService;
 import mz.co.geekframeworks.core.util.UserContextUtil;
@@ -112,5 +113,11 @@ public class UserWebServiceImpl implements UserWebService {
 	public JResponse<User> loadUserByUsername(final String username) throws BusinessException {
 		final User user = (User) this.userQueryService.loadUserByUsername(username);
 		return JResponse.ok(user).build();
+	}
+
+	@Override
+	public JResponse<UserDTO> findUserByUuid(final String uuid) throws BusinessException {
+		final User user = this.userQueryService.findUserByUuid(uuid);
+		return JResponse.ok(new UserDTO(user)).build();
 	}
 }

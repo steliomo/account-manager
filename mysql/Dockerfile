@@ -11,10 +11,10 @@ ADD backup /usr/bin/backup
 ADD localtime /etc/localtime
 ADD accountmanager.sql /accountmanager.sql
 
-RUN apk add --update mariadb mariadb-client; \
-    rm /usr/bin/mysql_client_test_embedded; \
-    rm /usr/bin/mysqltest; \
-    rm /usr/bin/mysqltest_embedded;
+RUN apk add --update mariadb mariadb-client; 
+    # rm /usr/bin/mysql_client_test_embedded; \
+    # rm /usr/bin/mysqltest; \
+    # rm /usr/bin/mysqltest_embedded;
 
 COPY run.sh /run.sh
 
