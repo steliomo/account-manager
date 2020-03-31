@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 import com.sun.jersey.api.JResponse;
 
 import mz.co.geekframeworks.core.user.model.User;
+import mz.co.geekframeworks.core.user.model.UserDTO;
 import mz.co.mozview.frameworks.core.exception.BusinessException;
 import mz.co.mozview.frameworks.core.webservices.model.UserContext;
 
@@ -47,4 +48,14 @@ public interface UserWebService {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public JResponse<User> createUser(final UserContext userContext) throws BusinessException;
+
+	@GET
+	@Path("user/{username}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public JResponse<User> loadUserByUsername(@PathParam("username") final String username) throws BusinessException;
+
+	@GET
+	@Path("by-uuid/{uuid}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public JResponse<UserDTO> findUserByUuid(@PathParam("uuid") final String uuid) throws BusinessException;
 }
