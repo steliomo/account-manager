@@ -18,7 +18,7 @@ import mz.co.mozview.frameworks.core.exception.ErrorMessage;
  *
  */
 @Provider
-public class AccountExceptionHandler implements ExceptionMapper<BusinessException> {
+public class AccountExceptionMapper implements ExceptionMapper<BusinessException> {
 
 	@Override
 	public Response toResponse(final BusinessException businessException) {
